@@ -1,0 +1,25 @@
+body {
+    font-family:'Courier New', Courier, monospace;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(102, 68, 255);
+}
+
+.app {
+    background-color: rgb(184, 184, 184);
+    width: 60%;
+}
+
+.addNew {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(104, 43, 226);
+    border-radius: 100px;
+    padding: 20px;
+}
