@@ -1,25 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family:'Courier New', Courier, monospace;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    background-color: rgb(102, 68, 255);
+  background-color: #ccc;
+  min-height: 100vh;
+  position: relative;
+  background-image: url(bgred.jpeg);
+  background-size: cover;
 }
 
-.app {
-    background-color: rgb(184, 184, 184);
-    width: 60%;
+body {
+  animation-duration: 5s;
+  animation-name: blured;
 }
 
-.addNew {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: rgb(255, 255, 255);
-    background-color: rgb(104, 43, 226);
-    border-radius: 100px;
-    padding: 20px;
+@keyframes blured {
+  from {
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+  }
+
+  to {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+  }
+}
+
+header {
+  animation-duration: 5s;
+  animation-name: opacited;
+}
+
+@keyframes opacited {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+@font-face {
+  font-family: "!Lestatic";
+  src: url(!LestaticCSS.ttf);
+}
+
+header {
+  font-size: 2rem;
+  font-family: "!Lestatic";
+  color: rgb(255, 0, 0);
+  text-shadow: 0 1px 5px rgb(30, 0, 35);
+}
+
+header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  border: none;
+  background: #fff;
+}
+
+form button {
+  color: royalblue;
+  background: white;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+form button:hover {
+  color: #153084;
+}
+
+.select-container {
+  padding: 0.5rem;
+}
+
+#todo-select {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.divTodo {
+  margin: 0.5rem;
+  background: #fff;
+  color: #000;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  background-color: rgb(255, 149, 149);
+}
+#todo-input,
+#date-input,
+#todo-button,
+#todo-select {
+  animation-duration: 5s;
+  animation-name: growed;
+}
+@keyframes growed {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.divTodo li {
+  flex: 1;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+}
+
+.deleted-btn,
+.validated-btn {
+  background: royalblue;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border: 1px solid black;
+  box-shadow: 0 2px 2px black;
+  /* border-radius: 15%; */
+}
+
+.description-btn {
+  width: 50px;
+  height: 50px;
+  margin-left: 3px;
+  background-color: rgb(156, 156, 250);
+  cursor: pointer;
+  border: 1px solid black;
+  box-shadow: 0 2px 2px black;
+}
+
+.description {
+  width: 20px;
+}
+
+.modify {
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  background: #fff;
+  font-style: italic;
+}
+
+.validated-btn {
+  margin-right: 0.2rem;
+  background: #344f00;
+}
+
+.deleted-btn {
+  background: #d62c49;
+}
+
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+#todo-input,
+#todo-button,
+#todo-select {
+  background-color: rgb(255, 152, 152);
+  border: 2px solid rgb(0, 0, 0);
+}
+
+#date-input {
+  background-color: rgb(180, 0, 15);
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.fa-trash,
+.fa-circle-trash {
+  pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.filtered {
+  display: flex;
+}
+
+.filter {
+  margin-left: 40%;
+  width: 200px;
+  height: 30px;
+  background-color: rgb(113, 1, 18);
+  box-shadow: 0 3px 5px black;
+  color: white;
+}
+
+header {
+  animation-duration: 3s;
+  animation-name: slide;
+  animation-delay: 0.1s;
+}
+
+@keyframes slide {
+  0% {
+    margin-left: -15%;
+  }
+  50% {
+    margin-left: 40%;
+  }
+
+  100% {
+    margin-left: 0%;
+  }
+}
+
+.filter:hover {
+  box-shadow: 0 0 20px red;
+}
+
+/* ****************** FIRE ****************** */
+
+.mo-fire {
+  height: auto;
+  position: fixed;
+  left: 20%;
+  bottom: -50px;
+  z-index: 4;
+}
+
+#Layer_1 {
+  margin: 0 -25%;
+}
+#Layer_2 {
+  margin: 0 -5%;
+}
+#Layer_3 {
+  margin: 0 20%;
+}
+#Layer_4 {
+  margin: 0 45%;
+}
+#Layer_5 {
+  margin: 0 70%;
+}
+
+#svg-view {
+  width: 252px;
+  height: 125px;
+  left: 0px;
+}
+
+.mo-fire svg {
+  width: 40%;
+  height: 50%;
+  position: relative;
+}
+.flame {
+  animation-name: flameDisappear;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.5;
+  transform-origin: 45% 45% 0;
+}
+.flame.one {
+  animation-delay: 1s;
+  animation-duration: 3s;
+}
+.flame.two {
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+
+.flame-main {
+  animation-name: flameMovement;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.flame-main.one {
+  animation-duration: 2.2s;
+  animation-delay: 1s;
+}
+.flame-main.two {
+  animation-duration: 2s;
+  animation-delay: 1s;
+}
+.flame-main.three {
+  animation-duration: 2.1s;
+  animation-delay: 3s;
+}
+.flame-main.four {
+  animation-duration: 3.2s;
+  animation-delay: 4s;
+}
+.flame-main.five {
+  animation-duration: 2.5s;
+  animation-delay: 5s;
+}
+@keyframes flameMovement {
+  50% {
+    transform: scale(0.98, 1) translate(0, 2px) rotate(-1deg);
+  }
+}
+@keyframes flameDisappear {
+  0% {
+    transform: translate(0) rotate(180deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-10px, -40px) rotate(180deg);
+    opacity: 0;
+  }
 }
